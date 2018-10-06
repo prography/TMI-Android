@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.administrator.tmi.data.ItemData;
 import com.example.administrator.tmi.adapter.MyAdapter;
@@ -19,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button btn = (Button)findViewById(R.id.button2);
+        Button myBtn = (Button)findViewById(R.id.button);
+
         listView = (ListView)findViewById(R.id.list_view);
         mAdapter = new MyAdapter(this);
         listView.setAdapter(mAdapter);
@@ -33,6 +39,28 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        myBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent myIntent = new Intent(MainActivity.this, MyActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent my1Intent = new Intent(MainActivity.this, WriteActivity.class);
+                startActivity(my1Intent);
+            }
+        });
+
+
+
+
     }
 
     private void initData(){
