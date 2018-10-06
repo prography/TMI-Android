@@ -11,14 +11,32 @@ import com.example.administrator.tmi.R;
 
 public class WriteActivity extends AppCompatActivity {
 
+
+    Button backBtn;
+    Button okBtn;
+    EditText editText;
+    EditText editText2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
-        Button backBtn = (Button)findViewById(R.id.button3);
-        Button okBtn = (Button)findViewById(R.id.button5);
-        final EditText title = (EditText)findViewById(R.id.editText);
-        final EditText text = (EditText)findViewById(R.id.editText2);
+
+
+        initView();
+        setData();
+
+
+    }
+
+    private void setData() {
+    }
+
+
+    private void initView() {
+        backBtn = (Button)findViewById(R.id.button3);
+        okBtn = (Button)findViewById(R.id.button5);
+
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,8 +48,11 @@ public class WriteActivity extends AppCompatActivity {
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(WriteActivity.this,title.getText(),Toast.LENGTH_SHORT).show();
-                Toast.makeText(WriteActivity.this,text.getText(),Toast.LENGTH_SHORT).show();
+                String title = editText.getText().toString();
+                String content = editText2.getText().toString();
+
+                Toast.makeText(WriteActivity.this,title,Toast.LENGTH_SHORT).show();
+                Toast.makeText(WriteActivity.this,content,Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

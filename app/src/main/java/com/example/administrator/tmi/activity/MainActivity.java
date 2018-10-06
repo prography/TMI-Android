@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.administrator.tmi.data.ItemData;
 import com.example.administrator.tmi.adapter.MyAdapter;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent (getApplicationContext(),MainDetail.class);
+                Intent intent = new Intent (getApplicationContext(),MainDetailActivity.class);
                 intent.putExtra("subject", MyAdapter.items.get(position).subjectText);
                 intent.putExtra("main_text", MyAdapter.items.get(position).mainText);
                 startActivity(intent);

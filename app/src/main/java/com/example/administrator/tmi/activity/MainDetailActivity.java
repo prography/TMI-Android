@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.example.administrator.tmi.R;
 
-public class MainDetail extends AppCompatActivity {
+public class MainDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
