@@ -1,8 +1,15 @@
-package com.example.administrator.tmi;
+package com.example.administrator.tmi.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.administrator.tmi.data.ItemData;
+import com.example.administrator.tmi.adapter.MyAdapter;
+import com.example.administrator.tmi.R;
 
 public class MainActivity extends AppCompatActivity {
     ListView listView;
@@ -16,6 +23,16 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(this);
         listView.setAdapter(mAdapter);
         initData();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent (getApplicationContext(),MainDetail.class);
+                intent.putExtra("subject", MyAdapter.items.get(position).subjectText);
+                intent.putExtra("main_text", MyAdapter.items.get(position).mainText);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initData(){

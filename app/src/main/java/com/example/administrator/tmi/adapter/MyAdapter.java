@@ -1,15 +1,18 @@
-package com.example.administrator.tmi;
+package com.example.administrator.tmi.adapter;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.example.administrator.tmi.data.ItemData;
+import com.example.administrator.tmi.widget.ItemView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends BaseAdapter {
-    ArrayList<ItemData> items=new ArrayList<ItemData>();
+    public static ArrayList<ItemData> items=new ArrayList<ItemData>();
     Context mContext;
 
 

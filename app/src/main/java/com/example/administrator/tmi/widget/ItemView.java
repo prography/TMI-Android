@@ -1,4 +1,4 @@
-package com.example.administrator.tmi;
+package com.example.administrator.tmi.widget;
 
 
 import android.content.Context;
@@ -6,8 +6,10 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.administrator.tmi.R;
+import com.example.administrator.tmi.data.ItemData;
 
 public class ItemView extends FrameLayout {
     public ItemView(Context context){

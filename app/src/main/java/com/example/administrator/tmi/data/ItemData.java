@@ -1,4 +1,4 @@
-package com.example.administrator.tmi;
+package com.example.administrator.tmi.data;
 
 public class ItemData {
 

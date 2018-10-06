@@ -5,30 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.MainActivity">
-
+    tools:context=".activity.MainDetail">
 
     <TextView
-        android:id="@+id/good_tip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Good TIP"
-        android:textSize="25dp"
+        android:id="@+id/subject"
+        android:text="강남역"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:padding="10dp" />
-
-    <EditText
-        android:id="@+id/search_bar"
-        android:hint="검색어를 입력하세요"
-        android:textSize="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
+        android:paddingLeft="10dp"
         android:layout_height="wrap_content" />
 
-
-    <ListView
-        android:id="@+id/list_view"
+    <TextView
+        android:id="@+id/main_text"
+        android:text="서울이~~~~"
+        android:lineSpacingExtra="5dp"
+        android:textSize="15dp"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
