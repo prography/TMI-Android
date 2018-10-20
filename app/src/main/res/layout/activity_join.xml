@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.JoinActivity">
+
+    <EditText
+        android:id="@+id/id_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID"
+        android:padding="20dp"/>
+
+    <EditText
+        android:id="@+id/password_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호 입력"
+        android:padding="20dp"/>
+
+    <EditText
+        android:id="@+id/password_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호 확인"
+        android:padding="20dp"/>
+
+    <TextView
+        android:id="@+id/check_text"
+        android:text="비밀번호가 일치하지 않습니다."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"/>
+
+    <Button
+        android:id="@+id/join_button"
+        android:text="회원가입"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+</LinearLayout>

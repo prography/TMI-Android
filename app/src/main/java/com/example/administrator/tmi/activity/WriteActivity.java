@@ -34,8 +34,7 @@ public class WriteActivity extends AppCompatActivity {
 
 
     private void initView() {
-        backBtn = (Button)findViewById(R.id.button3);
-        okBtn = (Button)findViewById(R.id.button5);
+        backBtn = (Button)findViewById(R.id.back_button);
 
 
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -45,16 +44,6 @@ public class WriteActivity extends AppCompatActivity {
             }
         });
 
-        okBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String title = editText.getText().toString();
-                String content = editText2.getText().toString();
 
-                Toast.makeText(WriteActivity.this,title,Toast.LENGTH_SHORT).show();
-                Toast.makeText(WriteActivity.this,content,Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
     }
 }
