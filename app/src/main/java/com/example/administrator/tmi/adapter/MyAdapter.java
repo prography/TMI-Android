@@ -17,8 +17,8 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    static List<ItemData> itemList;
-    static Context context;
+    private List<ItemData> itemList;
+    private Context context;
 
     public MyAdapter(Context context, List<ItemData> itemList){
         this.context = context;
@@ -27,11 +27,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i){
-        View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_layout, viewGroup,false);
-        ViewHolder viewHolder = new ViewHolder(view);
-
-        return viewHolder;
+        View view = LayoutInflater.from(context).inflate(R.layout.item_layout, viewGroup,false);
+        return new ViewHolder(view);
     }
 
     public void onBindViewHolder(ViewHolder viewHolder, int position){
