@@ -39,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
         containerView.setLayoutManager(manager);
         containerView.setAdapter(mAdapter);
 
+
+
+
+
+
+
+
         TextView searchText = (TextView)findViewById(R.id.search_text);
         searchText.setOnClickListener(new View.OnClickListener() {
             @Override

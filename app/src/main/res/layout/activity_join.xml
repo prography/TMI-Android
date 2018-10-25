@@ -11,6 +11,7 @@
         android:id="@+id/id_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
         android:hint="ID"
         android:padding="20dp"/>
 
@@ -39,6 +40,7 @@
         android:id="@+id/join_button"
         android:text="회원가입"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:layout_width="wrap_content"
+        android:layout_marginStart="300dp"/>
 
 </LinearLayout>
