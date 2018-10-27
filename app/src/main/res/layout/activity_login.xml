@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,50 +7,63 @@
     android:orientation="vertical"
     tools:context=".activity.LoginActivity">
 
-
-    <EditText
-        android:id="@+id/id_text"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginStart="108.6dp"
-        android:hint="ID"
-        android:textSize="15sp"
-        android:textColor="#999999"
-        android:background="@null"
-        android:padding="20dp"/>
+        android:layout_height="510sp"
+        android:orientation="vertical"
+        android:background="@drawable/background">
 
-    <EditText
-        android:id="@+id/password_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108.6dp"
-        android:background="@null"
-        android:hint="password"
-        android:textSize="15sp"
-        android:textColor="#999999"
-        android:padding="20dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:layout_marginTop="100sp"
+            android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/login_button"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_gravity="center"
-        android:background="@drawable/rec3"
-        android:padding="0dp"
-        android:text="로그인" />
+
+        <EditText
+            android:id="@+id/id_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70sp"
+            android:layout_marginLeft="108.6dp"
+            android:hint="ID"
+            android:textSize="15sp"
+            android:textColor="#999999"
+            android:background="@null"
+            android:padding="20dp"/>
+
+        <EditText
+            android:id="@+id/password_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="108.6dp"
+            android:layout_marginTop="21sp"
+            android:background="@null"
+            android:hint="password"
+            android:textSize="15sp"
+            android:textColor="#999999"
+            android:padding="20dp" />
+
+        <Button
+            android:id="@+id/login_button"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rec3"
+            android:paddingBottom="20dp"
+            android:text="로그인"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/join_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="37.4dp"
-        android:padding="0dp"
-        android:background="#00ff0000"
-        android:text="회원가입" />
+        android:background="@drawable/sign_up"
+        android:text="회원가입 하기" />
 
 </LinearLayout>
