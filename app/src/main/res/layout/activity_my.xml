@@ -63,7 +63,7 @@
             android:id="@+id/news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="새소식"/>
+            android:text="알림"/>
 
         <Button
             android:id="@+id/setting"
@@ -89,20 +89,71 @@
             android:layout_height="match_parent"
             android:visibility="gone" />
 
-        <TextView
+        <LinearLayout
             android:id="@+id/news_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="서비스 공지"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:orientation="vertical">
 
-        <Switch
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/reply_image"
+                    android:layout_height="30dp"
+                    android:layout_width="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/reply"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:text="공지"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:text="09.15"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="더미데이터 공지 더미데이터 공지 더미데이터 공지 더미데이터 공지 더미데이터 공지"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/switch_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"/>
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="알림 표시"
+                android:padding="20dp"
+                android:textStyle="bold"/>
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
 
     </FrameLayout>
