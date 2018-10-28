@@ -67,7 +67,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/reply"/>
+            android:src="@drawable/item_talk_bub"/>
 
         <TextView
             android:id="@+id/reply_count"
@@ -86,7 +86,7 @@
             android:layout_height="25dp"
             android:layout_margin="10dp"
             android:layout_alignParentRight="true"
-            android:src="@drawable/heart"/>
+            android:src="@drawable/item_book"/>
 
 
     </RelativeLayout>
