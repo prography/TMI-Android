@@ -5,43 +5,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#002958"
     tools:context=".activity.JoinActivity">
 
-    <EditText
-        android:id="@+id/id_text"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:hint="ID"
-        android:padding="20dp"/>
+        android:layout_height="510sp"
+        android:orientation="vertical"
+        android:background="@drawable/singup_back">
+        <TextView
+            android:id="@+id/signup_text"
+            android:text="회원가입"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="90sp"/>
+        <EditText
+            android:id="@+id/signup_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40sp"
+            android:layout_gravity="center"
+            android:hint="ID"
+            android:textSize="15sp"
+            android:textColor="#999999"
+            android:background="@drawable/login_id"
+            android:paddingLeft="70sp"
+            android:paddingBottom="5sp"/>
 
-    <EditText
-        android:id="@+id/password_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="비밀번호 입력"
-        android:padding="20dp"/>
+        <EditText
+            android:id="@+id/signup_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="0sp"
+            android:background="@drawable/login_pass"
+            android:hint="Password"
+            android:textSize="15sp"
+            android:textColor="#999999"
+            android:paddingLeft="70dp"
+            android:paddingBottom="5sp"/>
 
-    <EditText
-        android:id="@+id/password_check"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="비밀번호 확인"
-        android:padding="20dp"/>
+        <EditText
+            android:id="@+id/signup_pass_conf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="-30sp"
+            android:background="@drawable/login_pass"
+            android:hint="Confirm Password"
+            android:textSize="15sp"
+            android:textColor="#999999"
+            android:paddingLeft="70dp"
+            android:paddingBottom="5sp"/>
 
-    <TextView
-        android:id="@+id/check_text"
-        android:text="비밀번호가 일치하지 않습니다."
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"/>
+        <Button
+            android:id="@+id/signup_signup"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center"
+            android:background="@drawable/sign_in"
+            android:paddingBottom="10sp"
+            android:text="회 원 가 입"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
     <Button
-        android:id="@+id/join_button"
-        android:text="회원가입"
-        android:layout_height="wrap_content"
+        android:id="@+id/signup_login"
         android:layout_width="wrap_content"
-        android:layout_marginStart="300dp"
-        android:layout_marginLeft="300dp" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/signup_login"
+        android:textStyle="bold"
+        android:text="로그인 하기"
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>

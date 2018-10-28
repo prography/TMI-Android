@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="510sp"
         android:orientation="vertical"
-        android:background="@drawable/background">
+        android:background="@drawable/login_background">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -22,48 +22,50 @@
 
 
         <EditText
-            android:id="@+id/id_text"
-            android:layout_width="match_parent"
+            android:id="@+id/login_id"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70sp"
-            android:layout_marginLeft="108.6dp"
+            android:layout_marginTop="50sp"
+            android:layout_gravity="center"
             android:hint="ID"
             android:textSize="15sp"
             android:textColor="#999999"
-            android:background="@null"
-            android:padding="20dp"/>
+            android:background="@drawable/login_id"
+            android:paddingLeft="70sp"
+            android:paddingBottom="5sp"/>
 
         <EditText
-            android:id="@+id/password_text"
-            android:layout_width="match_parent"
+            android:id="@+id/login_password"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="108.6dp"
-            android:layout_marginTop="21sp"
-            android:background="@null"
-            android:hint="password"
+            android:layout_gravity="center"
+            android:layout_marginTop="-10sp"
+            android:background="@drawable/login_pass"
+            android:hint="Password"
             android:textSize="15sp"
             android:textColor="#999999"
-            android:padding="20dp" />
+            android:paddingLeft="70dp"
+            android:paddingBottom="5sp"/>
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/login_login"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:layout_gravity="center"
-            android:background="@drawable/rec3"
-            android:paddingBottom="20dp"
+            android:background="@drawable/sign_in"
+            android:paddingBottom="10sp"
             android:text="로그인"
             android:textColor="@android:color/white"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/join_button"
+        android:id="@+id/login_join"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/sign_up"
+        android:background="@drawable/login_signup"
         android:text="회원가입 하기" />
 
 </LinearLayout>

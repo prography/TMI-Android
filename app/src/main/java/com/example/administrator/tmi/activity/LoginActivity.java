@@ -16,8 +16,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Button JoinButton = (Button)findViewById(R.id.join_button);
-        Button LoginButton = (Button) findViewById(R.id.login_button);
+        Button JoinButton = (Button)findViewById(R.id.login_join);
+        Button LoginButton = (Button) findViewById(R.id.login_login);
         JoinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
