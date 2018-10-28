@@ -1,7 +1,6 @@
 package com.example.administrator.tmi.data;
 
 public class ItemData {
-    private int replyImageId;
     private int likeImageId;
     private String nameText;
     private String dateText;
@@ -13,13 +12,6 @@ public class ItemData {
     public ItemData(){
     }
 
-    public int getReplyImageId() {
-        return replyImageId;
-    }
-
-    public void setReplyImageId(int replyImageId) {
-        this.replyImageId = replyImageId;
-    }
 
     public int getLikeImageId() {
         return likeImageId;

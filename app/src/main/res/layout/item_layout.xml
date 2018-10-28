@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/subject"
+        android:id="@+id/item_subject"
         android:text="강남역 인근 주말 주차 장소 추천"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/main_text"
+        android:id="@+id/item_text"
         android:text="서울이 차 끌고 가기 막막한 곳으로 손꼽히는 강남! 모르면 손해보는 강남역, 신논현역 인근 주말 주차꿀팁"
         android:lineSpacingExtra="5dp"
         android:textSize="15dp"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/nickname"
+            android:id="@+id/item_nickname"
             android:text="자색호랑나비"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:textSize="10dp"/>
 
         <TextView
-            android:id="@+id/date_text"
+            android:id="@+id/item_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -47,7 +47,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/tags"
+        android:id="@+id/item_tags"
         android:text="#강남 #주말 #주차 꿀팁"
         android:textSize="15dp"
         android:paddingLeft="10dp"
@@ -60,20 +60,20 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/reply_image"
+            android:id="@+id/item_talk_bub"
             android:layout_height="30dp"
             android:layout_width="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/item_talk_bub"/>
+            android:src="@drawable/item_talk_bub01"/>
 
         <TextView
-            android:id="@+id/reply_count"
+            android:id="@+id/item_reply_count"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_toRightOf="@+id/reply_image"
+            android:layout_toRightOf="@+id/item_talk_bub"
             android:text="33"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
@@ -81,7 +81,7 @@
             android:textSize="10dp" />
 
         <ImageView
-            android:id="@+id/like_image"
+            android:id="@+id/item_book"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_margin="10dp"

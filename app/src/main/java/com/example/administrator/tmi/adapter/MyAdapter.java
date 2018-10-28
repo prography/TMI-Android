@@ -36,7 +36,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         viewHolder.dateText.setText(itemData.getDateText());
         viewHolder.nameText.setText(itemData.getNameText());
         viewHolder.likeImageView.setImageResource(itemData.getLikeImageId());
-        viewHolder.replyImageView.setImageResource(itemData.getReplyImageId());
         viewHolder.replyCount.setText(String.valueOf(itemData.getReplyCount()));
         viewHolder.subjectText.setText(itemData.getSubjectText());
         viewHolder.mainText.setText(itemData.getMainText());
@@ -63,7 +62,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         TextView dateText;
         TextView nameText;
         ImageView likeImageView;
-        ImageView replyImageView;
         TextView replyCount;
         TextView subjectText;
         TextView mainText;
@@ -71,14 +69,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         ViewHolder(View itemView){
             super(itemView);
-            dateText = (TextView)itemView.findViewById(R.id.date_text);
-            nameText = (TextView)itemView.findViewById(R.id.nickname);
-            likeImageView = (ImageView)itemView.findViewById(R.id.like_image);
-            replyImageView = (ImageView)itemView.findViewById(R.id.reply_image);
-            replyCount = (TextView)itemView.findViewById(R.id.reply_count);
-            subjectText = (TextView)itemView.findViewById(R.id.subject);
-            mainText = (TextView)itemView.findViewById(R.id.main_text);
-            tagsText = (TextView)itemView.findViewById(R.id.tags);
+            dateText = (TextView)itemView.findViewById(R.id.item_date);
+            nameText = (TextView)itemView.findViewById(R.id.item_nickname);
+            likeImageView = (ImageView)itemView.findViewById(R.id.item_book);
+            replyCount = (TextView)itemView.findViewById(R.id.item_reply_count);
+            subjectText = (TextView)itemView.findViewById(R.id.item_subject);
+            mainText = (TextView)itemView.findViewById(R.id.item_text);
+            tagsText = (TextView)itemView.findViewById(R.id.item_tags);
         }
     }
 }
