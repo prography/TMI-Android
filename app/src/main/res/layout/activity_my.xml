@@ -7,69 +7,83 @@
     android:orientation="vertical"
     tools:context=".activity.MyActivity">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="50dp"
+        android:background="#4e90ff">
 
-        <TextView
-            android:id="@+id/good_tip"
+        <ImageView
+            android:id="@+id/my_logo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:text="TMI"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:paddingLeft="10sp"
+            android:src="@drawable/main_logo"/>
 
-        <Button
-            android:id="@+id/write_button"
+        <ImageButton
+            android:id="@+id/my_write"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_weight="1"
-            android:text="글쓰기"
-            app:layout_constraintEnd_toStartOf="@+id/button" />
+            android:layout_height="match_parent"
+            android:src="@drawable/main_write"
+            android:background="@android:color/transparent"
+            android:paddingRight="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/my_mine" />
 
-        <Button
-            android:id="@+id/button"
+        <ImageButton
+            android:id="@+id/my_mine"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="MY"
+            android:layout_height="match_parent"
+            android:src="@drawable/main_mine"
+            android:background="@android:color/transparent"
+            android:paddingRight="10sp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/my_topbar"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/my_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내 글"/>
+            android:layout_weight="1"
+            android:text="내가 쓴 글"
+            android:textColor="#4e90ff"
+            android:textStyle="bold"
+            android:background="@drawable/my_bule_bar01"/>
 
         <Button
-            android:id="@+id/saved_text"
+            android:id="@+id/my_book"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="저장한 글"/>
+            android:layout_weight="1"
+            android:text="북 마크"
+            android:textColor="#4c4c4c"
+            android:textStyle="bold"
+            android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/news"
+            android:id="@+id/my_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="알림"/>
+            android:layout_weight="1"
+            android:text="알림"
+            android:textColor="#4c4c4c"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"/>
 
         <Button
-            android:id="@+id/setting"
+            android:id="@+id/my_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="설정"/>
+            android:layout_weight="1"
+            android:text="설정"
+            android:textColor="#4c4c4c"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"/>
 
     </LinearLayout>
 
@@ -78,19 +92,19 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/my_container"
+            android:id="@+id/my_text_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/saved_container"
+            android:id="@+id/my_book_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone" />
 
         <LinearLayout
-            android:id="@+id/news_list"
+            android:id="@+id/my_news_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="invisible"
@@ -136,7 +150,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/switch_button"
+            android:id="@+id/my_switch_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

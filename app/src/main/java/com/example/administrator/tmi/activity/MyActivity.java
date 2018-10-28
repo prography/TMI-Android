@@ -1,12 +1,19 @@
 package com.example.administrator.tmi.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.MotionEvent;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -40,18 +47,19 @@ public class MyActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     public void initView() {
-        myContainerView = (RecyclerView) findViewById(R.id.my_container);
-        savedContainerView = (RecyclerView) findViewById(R.id.saved_container);
-        newsList = (LinearLayout) findViewById(R.id.news_list);
-        alarmSwitch = (LinearLayout) findViewById(R.id.switch_button);
+        myContainerView = (RecyclerView) findViewById(R.id.my_text_container);
+        savedContainerView = (RecyclerView) findViewById(R.id.my_book_container);
+        newsList = (LinearLayout) findViewById(R.id.my_news_list);
+        alarmSwitch = (LinearLayout) findViewById(R.id.my_switch_button);
 
-        Button writeButton = (Button) findViewById(R.id.write_button);
+        ImageButton writeButton = (ImageButton) findViewById(R.id.my_write);
 
-        Button myTextButton = (Button) findViewById(R.id.my_text);
-        Button savedTextButton = (Button) findViewById(R.id.saved_text);
-        Button newsButton = (Button) findViewById(R.id.news);
-        Button settingButton = (Button) findViewById(R.id.setting);
+        final Button myTextButton = (Button) findViewById(R.id.my_text);
+        final Button savedTextButton = (Button) findViewById(R.id.my_book);
+        Button newsButton = (Button) findViewById(R.id.my_news);
+        Button settingButton = (Button) findViewById(R.id.my_setting);
 
         writeButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -62,6 +70,7 @@ public class MyActivity extends AppCompatActivity {
         });
 
         myTextButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 myContainerView.setVisibility(View.VISIBLE);
@@ -72,6 +81,7 @@ public class MyActivity extends AppCompatActivity {
         });
 
         savedTextButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 myContainerView.setVisibility(View.INVISIBLE);
@@ -100,7 +110,35 @@ public class MyActivity extends AppCompatActivity {
                 alarmSwitch.setVisibility(View.VISIBLE);
             }
         });
+
+        myTextButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    myTextButton.setTextColor(Color.parseColor("0x4e90ff"));
+                    savedTextButton.setTextColor(Color.parseColor("#4c4c4c"));
+                }
+
+                return false;
+            }
+        });
+
+        savedTextButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    savedTextButton.setTextColor(Color.parseColor("0x4e90ff"));
+                    myTextButton.setTextColor(Color.parseColor("#4c4c4c"));
+                }
+
+                return false;
+            }
+        });
     }
+
+
 
     private void initMyData() {
         ItemData d = new ItemData();
