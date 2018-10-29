@@ -26,14 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyActivity extends AppCompatActivity {
-    private RecyclerView myContainerView;
-    private RecyclerView savedContainerView;
+    RecyclerView myContainerView;
+    RecyclerView savedContainerView;
     private MyAdapter myAdapter;
     private MyAdapter savedAdapter;
     private List<ItemData> myList = new ArrayList<>();
     private List<ItemData> savedList = new ArrayList<>();
-    private LinearLayout newsList;
-    private LinearLayout alarmSwitch;
+    LinearLayout newsList;
+    LinearLayout alarmSwitch;
 
 
     @Override
@@ -49,8 +49,8 @@ public class MyActivity extends AppCompatActivity {
 
     @SuppressLint("ClickableViewAccessibility")
     public void initView() {
-        myContainerView = (RecyclerView) findViewById(R.id.my_text_container);
-        savedContainerView = (RecyclerView) findViewById(R.id.my_book_container);
+        myContainerView = (RecyclerView)findViewById(R.id.my_text_container);
+        savedContainerView = (RecyclerView)findViewById(R.id.my_book_container);
         newsList = (LinearLayout) findViewById(R.id.my_news_list);
         alarmSwitch = (LinearLayout) findViewById(R.id.my_switch_button);
 
@@ -58,8 +58,8 @@ public class MyActivity extends AppCompatActivity {
 
         final Button myTextButton = (Button) findViewById(R.id.my_text);
         final Button savedTextButton = (Button) findViewById(R.id.my_book);
-        Button newsButton = (Button) findViewById(R.id.my_news);
-        Button settingButton = (Button) findViewById(R.id.my_setting);
+        final Button newsButton = (Button) findViewById(R.id.my_news);
+        final Button settingButton = (Button) findViewById(R.id.my_setting);
 
         writeButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -69,56 +69,24 @@ public class MyActivity extends AppCompatActivity {
             }
         });
 
-        myTextButton.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-            @Override
-            public void onClick(View v) {
-                myContainerView.setVisibility(View.VISIBLE);
-                savedContainerView.setVisibility(View.INVISIBLE);
-                newsList.setVisibility(View.INVISIBLE);
-                alarmSwitch.setVisibility(View.INVISIBLE);
-            }
-        });
-
-        savedTextButton.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-            @Override
-            public void onClick(View v) {
-                myContainerView.setVisibility(View.INVISIBLE);
-                savedContainerView.setVisibility(View.VISIBLE);
-                newsList.setVisibility(View.INVISIBLE);
-                alarmSwitch.setVisibility(View.INVISIBLE);
-            }
-        });
-
-        newsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myContainerView.setVisibility(View.INVISIBLE);
-                savedContainerView.setVisibility(View.INVISIBLE);
-                newsList.setVisibility(View.VISIBLE);
-                alarmSwitch.setVisibility(View.INVISIBLE);
-            }
-        });
-
-        settingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myContainerView.setVisibility(View.INVISIBLE);
-                savedContainerView.setVisibility(View.INVISIBLE);
-                newsList.setVisibility(View.INVISIBLE);
-                alarmSwitch.setVisibility(View.VISIBLE);
-            }
-        });
 
         myTextButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                myContainerView.setVisibility(View.VISIBLE);
+                savedContainerView.setVisibility(View.INVISIBLE);
+                newsList.setVisibility(View.INVISIBLE);
+                alarmSwitch.setVisibility(View.INVISIBLE);
 
-                if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    myTextButton.setTextColor(Color.parseColor("0x4e90ff"));
-                    savedTextButton.setTextColor(Color.parseColor("#4c4c4c"));
-                }
+                myTextButton.setTextColor(Color.parseColor("#4e90ff"));
+                savedTextButton.setTextColor(Color.parseColor("#4c4c4c"));
+                newsButton.setTextColor(Color.parseColor("#4c4c4c"));
+                settingButton.setTextColor(Color.parseColor("#4c4c4c"));
+
+                myTextButton.setBackgroundResource(R.drawable.my_bule_bar01);
+                savedTextButton.setBackgroundColor(Color.TRANSPARENT);
+                newsButton.setBackgroundColor(Color.TRANSPARENT);
+                settingButton.setBackgroundColor(Color.TRANSPARENT);
 
                 return false;
             }
@@ -127,11 +95,64 @@ public class MyActivity extends AppCompatActivity {
         savedTextButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                myContainerView.setVisibility(View.INVISIBLE);
+                savedContainerView.setVisibility(View.VISIBLE);
+                newsList.setVisibility(View.INVISIBLE);
+                alarmSwitch.setVisibility(View.INVISIBLE);
 
-                if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    savedTextButton.setTextColor(Color.parseColor("0x4e90ff"));
-                    myTextButton.setTextColor(Color.parseColor("#4c4c4c"));
-                }
+                myTextButton.setTextColor(Color.parseColor("#4c4c4c"));
+                savedTextButton.setTextColor(Color.parseColor("#4e90ff"));
+                newsButton.setTextColor(Color.parseColor("#4c4c4c"));
+                settingButton.setTextColor(Color.parseColor("#4c4c4c"));
+
+                myTextButton.setBackgroundColor(Color.TRANSPARENT);
+                savedTextButton.setBackgroundResource(R.drawable.my_bule_bar01);
+                newsButton.setBackgroundColor(Color.TRANSPARENT);
+                settingButton.setBackgroundColor(Color.TRANSPARENT);
+
+                return false;
+            }
+        });
+
+        newsButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                myContainerView.setVisibility(View.INVISIBLE);
+                savedContainerView.setVisibility(View.VISIBLE);
+                newsList.setVisibility(View.INVISIBLE);
+                alarmSwitch.setVisibility(View.INVISIBLE);
+
+                myTextButton.setTextColor(Color.parseColor("#4c4c4c"));
+                savedTextButton.setTextColor(Color.parseColor("#4c4c4c"));
+                newsButton.setTextColor(Color.parseColor("#4e90ff"));
+                settingButton.setTextColor(Color.parseColor("#4c4c4c"));
+
+                myTextButton.setBackgroundColor(Color.TRANSPARENT);
+                savedTextButton.setBackgroundColor(Color.TRANSPARENT);
+                newsButton.setBackgroundResource(R.drawable.my_bule_bar01);
+                settingButton.setBackgroundColor(Color.TRANSPARENT);
+
+                return false;
+            }
+        });
+
+        settingButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                myContainerView.setVisibility(View.INVISIBLE);
+                savedContainerView.setVisibility(View.VISIBLE);
+                newsList.setVisibility(View.INVISIBLE);
+                alarmSwitch.setVisibility(View.INVISIBLE);
+
+                myTextButton.setTextColor(Color.parseColor("#4c4c4c"));
+                savedTextButton.setTextColor(Color.parseColor("#4c4c4c"));
+                newsButton.setTextColor(Color.parseColor("#4c4c4c"));
+                settingButton.setTextColor(Color.parseColor("#4e90ff"));
+
+                myTextButton.setBackgroundColor(Color.TRANSPARENT);
+                savedTextButton.setBackgroundColor(Color.TRANSPARENT);
+                newsButton.setBackgroundColor(Color.TRANSPARENT);
+                settingButton.setBackgroundResource(R.drawable.my_bule_bar01);
 
                 return false;
             }
