@@ -35,6 +35,11 @@ public class MyActivity extends AppCompatActivity {
     LinearLayout newsList;
     LinearLayout alarmSwitch;
 
+    Button myTextButton;
+    Button savedTextButton;
+    Button newsButton;
+    Button settingButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +61,10 @@ public class MyActivity extends AppCompatActivity {
 
         ImageButton writeButton = (ImageButton) findViewById(R.id.my_write);
 
-        final Button myTextButton = (Button) findViewById(R.id.my_text);
-        final Button savedTextButton = (Button) findViewById(R.id.my_book);
-        final Button newsButton = (Button) findViewById(R.id.my_news);
-        final Button settingButton = (Button) findViewById(R.id.my_setting);
+        myTextButton = (Button) findViewById(R.id.my_text);
+        savedTextButton = (Button) findViewById(R.id.my_book);
+        newsButton = (Button) findViewById(R.id.my_news);
+        settingButton = (Button) findViewById(R.id.my_setting);
 
         writeButton.setOnClickListener(new View.OnClickListener(){
             @Override
