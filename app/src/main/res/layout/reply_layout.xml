@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/white_back">
+
+    <TextView
+        android:id="@+id/item_subject"
+        android:text="강남역 인근 주말 주차 장소 추천"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="20sp"
+        android:layout_height="wrap_content"
+        android:paddingTop="10sp"/>
+
+    <TextView
+        android:id="@+id/item_text"
+        android:text="서울이 차 끌고 가기 막막한 곳으로 손꼽히는 강남! 모르면 손해보는 강남역, 신논현역 인근 주말 주차꿀팁"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        android:paddingHorizontal="20sp"
+        android:paddingBottom="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

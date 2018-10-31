@@ -7,25 +7,22 @@
     android:orientation="vertical"
     tools:context=".activity.WriteActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55sp"
+        android:background="#4e90ff"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/back_button"
+        <ImageButton
+            android:id="@+id/search_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"/>
+            android:background="@android:color/transparent"
+            android:padding="20sp"
+            android:src="@drawable/search_back"
+            tools:ignore="ContentDescription" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="검색"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="85dp"
-            android:textSize="20dp"/>
 
     </LinearLayout>
 
@@ -34,10 +31,14 @@
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPersonName"
-            android:hint="제목"
+            android:hint="제목 쓰는 곳"
+            android:textStyle="bold"
+            android:textColor="#9d9e9f"
+            android:padding="15dp"
+            android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@drawable/white_back"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
@@ -46,21 +47,25 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="본문"
+            android:hint="본문 쓰는 곳"
+            android:textStyle="bold"
+            android:textColor="#9d9e9f"
+            android:padding="15dp"
+            android:textSize="15sp"
+            android:background="@drawable/white_back"
             android:inputType="textMultiLine"
             android:gravity="center_horizontal|left" />
 
-    <EditText
-        android:id="@+id/tags_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="태그"/>
 
     <Button
         android:id="@+id/button_upload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="게시하기" />
+        android:text="게시하기"
+        android:textColor="#9d9e9f"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:background="@drawable/gray_back"/>
 
 
 </LinearLayout>
