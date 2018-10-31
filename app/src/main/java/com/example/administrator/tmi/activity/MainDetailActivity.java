@@ -16,7 +16,7 @@ public class MainDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_detail);
 
-        Button BackButton = (Button)findViewById(R.id.back_button);
+        Button BackButton = (Button)findViewById(R.id.search_back_button);
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

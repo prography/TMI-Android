@@ -36,7 +36,7 @@
             android:textStyle="bold"
             android:textColor="#9d9e9f"
             android:padding="15dp"
-            android:textSize="15sp"
+            android:textSize="17sp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:background="@drawable/white_back"
             app:layout_constraintTop_toTopOf="parent" />
@@ -51,7 +51,7 @@
             android:textStyle="bold"
             android:textColor="#9d9e9f"
             android:padding="15dp"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:background="@drawable/white_back"
             android:inputType="textMultiLine"
             android:gravity="center_horizontal|left" />

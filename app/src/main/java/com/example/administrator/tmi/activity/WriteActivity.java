@@ -34,7 +34,7 @@ public class WriteActivity extends AppCompatActivity {
 
 
     private void initView() {
-        backBtn = (Button)findViewById(R.id.back_button);
+        backBtn = (Button)findViewById(R.id.search_back_button);
 
 
         backBtn.setOnClickListener(new View.OnClickListener() {
