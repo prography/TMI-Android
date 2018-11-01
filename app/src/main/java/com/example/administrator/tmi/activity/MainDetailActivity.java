@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.administrator.tmi.R;
@@ -16,7 +17,7 @@ public class MainDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_detail);
 
-        Button BackButton = (Button)findViewById(R.id.search_back_button);
+        ImageButton BackButton = (ImageButton)findViewById(R.id.main_detail_back);
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -35,7 +35,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         final ItemData itemData = itemList.get(position);
         viewHolder.dateText.setText(itemData.getDateText());
         viewHolder.nameText.setText(itemData.getNameText());
-        viewHolder.likeImageView.setImageResource(itemData.getLikeImageId());
         viewHolder.replyCount.setText(String.valueOf(itemData.getReplyCount()));
         viewHolder.subjectText.setText(itemData.getSubjectText());
         viewHolder.mainText.setText(itemData.getMainText());

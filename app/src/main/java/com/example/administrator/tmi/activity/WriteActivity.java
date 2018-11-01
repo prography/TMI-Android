@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.administrator.tmi.R;
@@ -12,7 +13,7 @@ import com.example.administrator.tmi.R;
 public class WriteActivity extends AppCompatActivity {
 
 
-    Button backBtn;
+    ImageButton backBtn;
     Button okBtn;
     EditText editText;
     EditText editText2;
@@ -34,7 +35,7 @@ public class WriteActivity extends AppCompatActivity {
 
 
     private void initView() {
-        backBtn = (Button)findViewById(R.id.search_back_button);
+        backBtn = (ImageButton)findViewById(R.id.search_back_button);
 
 
         backBtn.setOnClickListener(new View.OnClickListener() {

@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         ItemData d = new ItemData();
         d.setDateText("10.20");
         d.setNameText("조완주");
-        d.setLikeImageId(R.drawable.item_book_fill);
         d.setReplyCount(33);
         d.setSubjectText("커피 마실 때 주의할 점");
         d.setMainText("호올스를 먹고 시원한 커피를 마시면 목이 아프다");
@@ -84,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         d = new ItemData();
         d.setDateText("10.19");
         d.setNameText("신성환");
-        d.setLikeImageId(R.drawable.heart);
         d.setReplyCount(33);
         d.setSubjectText("술 마실 때 의외로 어울리는 과일 안주");
         d.setMainText("귤이 의외로 술과 잘 어울린다");
@@ -94,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
         d = new ItemData();
         d.setDateText("10.18");
         d.setNameText("김애리");
-        d.setLikeImageId(R.drawable.heart);
         d.setReplyCount(33);
         d.setSubjectText("김치볶음밥 맛있는 곳");
         d.setMainText("강남역 코다차야 많이 맛있다");
@@ -104,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
         d = new ItemData();
         d.setDateText("10.17");
         d.setNameText("강찬");
-        d.setLikeImageId(R.drawable.heart);
         d.setReplyCount(33);
         d.setSubjectText("퇴근시간 평택역에서 서울 갈 때 유의할 점");
         d.setMainText("시외버스를 타면 차가 막혀서 지하철보다 오래 걸린다");
@@ -114,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
         d = new ItemData();
         d.setDateText("10.16");
         d.setNameText("하태린");
-        d.setLikeImageId(R.drawable.heart);
         d.setReplyCount(33);
         d.setSubjectText("아메리카노 맛없는 곳");
         d.setMainText("스타벅스 아메리카노는 정말 맛없다");
@@ -124,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
         d = new ItemData();
         d.setDateText("10.15");
         d.setNameText("박서연");
-        d.setLikeImageId(R.drawable.heart);
         d.setReplyCount(33);
         d.setSubjectText("나의 최애캐 만들기");
         d.setMainText("모바일 어플 '나의 최애캐'에서 만들 수 있다");
@@ -134,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
         d = new ItemData();
         d.setDateText("10.14");
         d.setNameText("허유경");
-        d.setLikeImageId(R.drawable.heart);
         d.setReplyCount(33);
         d.setSubjectText("이대 앞 커리야");
         d.setMainText("1인 1메뉴를 시키면 리필이 가능한데 메뉴를 바꿔서 리필이 가능하다");
@@ -145,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
             d = new ItemData();
             d.setDateText("10.00");
             d.setNameText("더미데이터 작성자");
-            d.setLikeImageId(R.drawable.heart);
             d.setReplyCount(33);
             d.setSubjectText("더미데이터 제목");
             d.setMainText("더미데이터 내용 더미데이터 내용 더미데이터 내용 더미데이터 내용 더미데이터 내용 ");
