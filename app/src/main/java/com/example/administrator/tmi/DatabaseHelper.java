@@ -89,7 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public List<Board> getBoards(){
         List<Board> boardList = new ArrayList<>();
 
-        String SELECT_ALL = "SELECT * FROM " + TABLE_BOARD;
+        String SELECT_ALL = "SELECT * FROM " + TABLE_BOARD + " ORDER BY id DESC";
 
         SQLiteDatabase db= this.getReadableDatabase();
         Cursor cursor = db.rawQuery(SELECT_ALL, null);
@@ -124,7 +124,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public List<Board> searchBoards(String string){
         List<Board> boardList = new ArrayList<>();
 
-        String SELECT_ALL = "SELECT * FROM " + TABLE_BOARD +" WHERE title LIKE '%"+string+"%'";
+        String SELECT_ALL = "SELECT * FROM " + TABLE_BOARD +" WHERE title LIKE '%"+string+"%'" + " ORDER BY id DESC";
 
         SQLiteDatabase db= this.getReadableDatabase();
         Cursor cursor = db.rawQuery(SELECT_ALL, null);
@@ -167,7 +167,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int tempId = memberCursor2.getInt(0);
 
 
-        String SELECT_ALL = "SELECT * FROM Boards WHERE user_id = "+tempId;
+        String SELECT_ALL = "SELECT * FROM Boards WHERE user_id = "+tempId  + " ORDER BY id DESC";
 
         Cursor cursor = db.rawQuery(SELECT_ALL, null);
 
