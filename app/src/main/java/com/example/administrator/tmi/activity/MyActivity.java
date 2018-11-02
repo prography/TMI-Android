@@ -1,44 +1,39 @@
 package com.example.administrator.tmi.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.administrator.tmi.DatabaseHelper;
 import com.example.administrator.tmi.R;
 import com.example.administrator.tmi.adapter.MyAdapter;
+import com.example.administrator.tmi.data.Board;
 import com.example.administrator.tmi.data.ItemData;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MyActivity extends AppCompatActivity {
-    RecyclerView myContainerView;
-    RecyclerView savedContainerView;
+    private RecyclerView myContainerView;
+    private RecyclerView savedContainerView;
     private MyAdapter myAdapter;
     private MyAdapter savedAdapter;
-    private List<ItemData> myList = new ArrayList<>();
+    DatabaseHelper helper;
+    SQLiteDatabase database;
+    private List<Board> myList = new ArrayList<>();
     private List<ItemData> savedList = new ArrayList<>();
-    LinearLayout newsList;
-    LinearLayout alarmSwitch;
-
-    Button myTextButton;
-    Button savedTextButton;
-    Button newsButton;
-    Button settingButton;
+    private LinearLayout newsList;
+    private LinearLayout alarmSwitch;
 
 
     @Override
@@ -47,24 +42,32 @@ public class MyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my);
 
         initView();
-        initMyData();
-        initSavedData();
+
+        helper = new DatabaseHelper(MyActivity.this);
+        database = helper.getWritableDatabase();
+        myList = helper.myBoards();
+
+        myAdapter = new MyAdapter(this, myList);
+        myContainerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        myContainerView.setAdapter(myAdapter);
+        savedAdapter = new MyAdapter(this, myList);
+        savedContainerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        savedContainerView.setAdapter(savedAdapter);
 
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     public void initView() {
-        myContainerView = (RecyclerView)findViewById(R.id.my_text_container);
-        savedContainerView = (RecyclerView)findViewById(R.id.my_book_container);
+        myContainerView = (RecyclerView) findViewById(R.id.my_text_container);
+        savedContainerView = (RecyclerView) findViewById(R.id.my_book_container);
         newsList = (LinearLayout) findViewById(R.id.my_news_list);
         alarmSwitch = (LinearLayout) findViewById(R.id.my_switch_button);
 
         ImageButton writeButton = (ImageButton) findViewById(R.id.my_write);
 
-        myTextButton = (Button) findViewById(R.id.my_text);
-        savedTextButton = (Button) findViewById(R.id.my_book);
-        newsButton = (Button) findViewById(R.id.my_news);
-        settingButton = (Button) findViewById(R.id.my_setting);
+        final Button myTextButton = (Button) findViewById(R.id.my_text);
+        final Button savedTextButton = (Button) findViewById(R.id.my_book);
+        final Button newsButton = (Button) findViewById(R.id.my_news);
+        final Button settingButton = (Button) findViewById(R.id.my_setting);
 
         writeButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -74,103 +77,86 @@ public class MyActivity extends AppCompatActivity {
             }
         });
 
-
-        myTextButton.setOnTouchListener(new View.OnTouchListener() {
+        myTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 myContainerView.setVisibility(View.VISIBLE);
                 savedContainerView.setVisibility(View.INVISIBLE);
                 newsList.setVisibility(View.INVISIBLE);
                 alarmSwitch.setVisibility(View.INVISIBLE);
-
                 myTextButton.setTextColor(Color.parseColor("#4e90ff"));
                 savedTextButton.setTextColor(Color.parseColor("#4c4c4c"));
                 newsButton.setTextColor(Color.parseColor("#4c4c4c"));
                 settingButton.setTextColor(Color.parseColor("#4c4c4c"));
-
                 myTextButton.setBackgroundResource(R.drawable.my_bule_bar01);
                 savedTextButton.setBackgroundColor(Color.TRANSPARENT);
                 newsButton.setBackgroundColor(Color.TRANSPARENT);
                 settingButton.setBackgroundColor(Color.TRANSPARENT);
-
-                return false;
             }
         });
 
-        savedTextButton.setOnTouchListener(new View.OnTouchListener() {
+        savedTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 myContainerView.setVisibility(View.INVISIBLE);
                 savedContainerView.setVisibility(View.VISIBLE);
                 newsList.setVisibility(View.INVISIBLE);
                 alarmSwitch.setVisibility(View.INVISIBLE);
-
                 myTextButton.setTextColor(Color.parseColor("#4c4c4c"));
                 savedTextButton.setTextColor(Color.parseColor("#4e90ff"));
                 newsButton.setTextColor(Color.parseColor("#4c4c4c"));
                 settingButton.setTextColor(Color.parseColor("#4c4c4c"));
-
                 myTextButton.setBackgroundColor(Color.TRANSPARENT);
                 savedTextButton.setBackgroundResource(R.drawable.my_bule_bar01);
                 newsButton.setBackgroundColor(Color.TRANSPARENT);
                 settingButton.setBackgroundColor(Color.TRANSPARENT);
-
-                return false;
             }
         });
 
-        newsButton.setOnTouchListener(new View.OnTouchListener() {
+        newsButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 myContainerView.setVisibility(View.INVISIBLE);
-                savedContainerView.setVisibility(View.VISIBLE);
-                newsList.setVisibility(View.INVISIBLE);
+                savedContainerView.setVisibility(View.INVISIBLE);
+                newsList.setVisibility(View.VISIBLE);
                 alarmSwitch.setVisibility(View.INVISIBLE);
-
                 myTextButton.setTextColor(Color.parseColor("#4c4c4c"));
                 savedTextButton.setTextColor(Color.parseColor("#4c4c4c"));
                 newsButton.setTextColor(Color.parseColor("#4e90ff"));
                 settingButton.setTextColor(Color.parseColor("#4c4c4c"));
-
                 myTextButton.setBackgroundColor(Color.TRANSPARENT);
                 savedTextButton.setBackgroundColor(Color.TRANSPARENT);
                 newsButton.setBackgroundResource(R.drawable.my_bule_bar01);
                 settingButton.setBackgroundColor(Color.TRANSPARENT);
-
-                return false;
             }
         });
 
-        settingButton.setOnTouchListener(new View.OnTouchListener() {
+        settingButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 myContainerView.setVisibility(View.INVISIBLE);
-                savedContainerView.setVisibility(View.VISIBLE);
+                savedContainerView.setVisibility(View.INVISIBLE);
                 newsList.setVisibility(View.INVISIBLE);
-                alarmSwitch.setVisibility(View.INVISIBLE);
-
+                alarmSwitch.setVisibility(View.VISIBLE);
                 myTextButton.setTextColor(Color.parseColor("#4c4c4c"));
                 savedTextButton.setTextColor(Color.parseColor("#4c4c4c"));
                 newsButton.setTextColor(Color.parseColor("#4c4c4c"));
                 settingButton.setTextColor(Color.parseColor("#4e90ff"));
-
                 myTextButton.setBackgroundColor(Color.TRANSPARENT);
                 savedTextButton.setBackgroundColor(Color.TRANSPARENT);
                 newsButton.setBackgroundColor(Color.TRANSPARENT);
                 settingButton.setBackgroundResource(R.drawable.my_bule_bar01);
-
-                return false;
             }
         });
     }
-
-
+    /*
 
     private void initMyData() {
         ItemData d = new ItemData();
         d.setDateText("10.20");
         d.setNameText("조완주");
         d.setLikeImageId(R.drawable.heart);
+        d.setReplyImageId(R.drawable.reply);
         d.setReplyCount(33);
         d.setSubjectText("커피 마실 때 주의할 점");
         d.setMainText("호올스를 먹고 시원한 커피를 마시면 목이 아프다");
@@ -181,6 +167,7 @@ public class MyActivity extends AppCompatActivity {
         d.setDateText("10.19");
         d.setNameText("신성환");
         d.setLikeImageId(R.drawable.heart);
+        d.setReplyImageId(R.drawable.reply);
         d.setReplyCount(33);
         d.setSubjectText("술 마실 때 의외로 어울리는 과일 안주");
         d.setMainText("귤이 의외로 술과 잘 어울린다");
@@ -191,6 +178,7 @@ public class MyActivity extends AppCompatActivity {
         d.setDateText("10.18");
         d.setNameText("김애리");
         d.setLikeImageId(R.drawable.heart);
+        d.setReplyImageId(R.drawable.reply);
         d.setReplyCount(33);
         d.setSubjectText("김치볶음밥 맛있는 곳");
         d.setMainText("강남역 코다차야 많이 맛있다");
@@ -201,6 +189,7 @@ public class MyActivity extends AppCompatActivity {
         d.setDateText("10.17");
         d.setNameText("강찬");
         d.setLikeImageId(R.drawable.heart);
+        d.setReplyImageId(R.drawable.reply);
         d.setReplyCount(33);
         d.setSubjectText("퇴근시간 평택역에서 서울 갈 때 유의할 점");
         d.setMainText("시외버스를 타면 차가 막혀서 지하철보다 오래 걸린다");
@@ -211,6 +200,7 @@ public class MyActivity extends AppCompatActivity {
         d.setDateText("10.16");
         d.setNameText("하태린");
         d.setLikeImageId(R.drawable.heart);
+        d.setReplyImageId(R.drawable.reply);
         d.setReplyCount(33);
         d.setSubjectText("아메리카노 맛없는 곳");
         d.setMainText("스타벅스 아메리카노는 정말 맛없다");
@@ -221,6 +211,7 @@ public class MyActivity extends AppCompatActivity {
         d.setDateText("10.15");
         d.setNameText("박서연");
         d.setLikeImageId(R.drawable.heart);
+        d.setReplyImageId(R.drawable.reply);
         d.setReplyCount(33);
         d.setSubjectText("나의 최애캐 만들기");
         d.setMainText("모바일 어플 '나의 최애캐'에서 만들 수 있다");
@@ -231,6 +222,7 @@ public class MyActivity extends AppCompatActivity {
         d.setDateText("10.14");
         d.setNameText("허유경");
         d.setLikeImageId(R.drawable.heart);
+        d.setReplyImageId(R.drawable.reply);
         d.setReplyCount(33);
         d.setSubjectText("이대 앞 커리야");
         d.setMainText("1인 1메뉴를 시키면 리필이 가능한데 메뉴를 바꿔서 리필이 가능하다");
@@ -242,6 +234,7 @@ public class MyActivity extends AppCompatActivity {
             d.setDateText("10.00");
             d.setNameText("더미데이터 작성자");
             d.setLikeImageId(R.drawable.heart);
+            d.setReplyImageId(R.drawable.reply);
             d.setReplyCount(33);
             d.setSubjectText("더미데이터 내 글 제목");
             d.setMainText("더미데이터 내 글 내용 더미데이터 내 글 내용 더미데이터 내 글 내용 더미데이터 내 글 내용 더미데이터 내 글 내용 ");
@@ -249,14 +242,16 @@ public class MyActivity extends AppCompatActivity {
             myList.add(d);
         }
 
-        setMyAdapter(myList);
+        //setMyAdapter(myList);
     }
+
 
     private void initSavedData() {
         ItemData e = new ItemData();
         e.setDateText("10.14");
         e.setNameText("허유경");
         e.setLikeImageId(R.drawable.heart);
+        e.setReplyImageId(R.drawable.reply);
         e.setReplyCount(33);
         e.setSubjectText("이대 앞 커리야");
         e.setMainText("1인 1메뉴를 시키면 리필이 가능한데 메뉴를 바꿔서 리필이 가능하다");
@@ -267,6 +262,7 @@ public class MyActivity extends AppCompatActivity {
         e.setDateText("10.15");
         e.setNameText("박서연");
         e.setLikeImageId(R.drawable.heart);
+        e.setReplyImageId(R.drawable.reply);
         e.setReplyCount(33);
         e.setSubjectText("나의 최애캐 만들기");
         e.setMainText("모바일 어플 '나의 최애캐'에서 만들 수 있다");
@@ -277,6 +273,7 @@ public class MyActivity extends AppCompatActivity {
         e.setDateText("10.16");
         e.setNameText("하태린");
         e.setLikeImageId(R.drawable.heart);
+        e.setReplyImageId(R.drawable.reply);
         e.setReplyCount(33);
         e.setSubjectText("아메리카노 맛없는 곳");
         e.setMainText("스타벅스 아메리카노는 정말 맛없다");
@@ -287,6 +284,7 @@ public class MyActivity extends AppCompatActivity {
         e.setDateText("10.17");
         e.setNameText("강찬");
         e.setLikeImageId(R.drawable.heart);
+        e.setReplyImageId(R.drawable.reply);
         e.setReplyCount(33);
         e.setSubjectText("퇴근시간 평택역에서 서울 갈 때 유의할 점");
         e.setMainText("시외버스를 타면 차가 막혀서 지하철보다 오래 걸린다");
@@ -297,6 +295,7 @@ public class MyActivity extends AppCompatActivity {
         e.setDateText("10.18");
         e.setNameText("김애리");
         e.setLikeImageId(R.drawable.heart);
+        e.setReplyImageId(R.drawable.reply);
         e.setReplyCount(33);
         e.setSubjectText("김치볶음밥 맛있는 곳");
         e.setMainText("강남역 코다차야 많이 맛있다");
@@ -307,6 +306,7 @@ public class MyActivity extends AppCompatActivity {
         e.setDateText("10.19");
         e.setNameText("신성환");
         e.setLikeImageId(R.drawable.heart);
+        e.setReplyImageId(R.drawable.reply);
         e.setReplyCount(33);
         e.setSubjectText("술 마실 때 의외로 어울리는 과일 안주");
         e.setMainText("귤이 의외로 술과 잘 어울린다");
@@ -317,6 +317,7 @@ public class MyActivity extends AppCompatActivity {
         e.setDateText("10.20");
         e.setNameText("조완주");
         e.setLikeImageId(R.drawable.heart);
+        e.setReplyImageId(R.drawable.reply);
         e.setReplyCount(33);
         e.setSubjectText("커피 마실 때 주의할 점");
         e.setMainText("호올스를 먹고 시원한 커피를 마시면 목이 아프다");
@@ -328,6 +329,7 @@ public class MyActivity extends AppCompatActivity {
             e.setDateText("10.05");
             e.setNameText("자색호랑나비");
             e.setLikeImageId(R.drawable.heart);
+            e.setReplyImageId(R.drawable.reply);
             e.setReplyCount(33);
             e.setSubjectText("저장된 글 리스트");
             e.setMainText("서울이 차 끌고 가기 막막한 곳으로 손꼽히는 강남! 모르면 손해보는 강남역, 신논현역 인근 주말 주차꿀팁");
@@ -335,7 +337,7 @@ public class MyActivity extends AppCompatActivity {
             savedList.add(e);
         }
 
-        setSavedAdapter(savedList);
+       //setSavedAdapter(savedList);
     }
 
     private void setMyAdapter(List<ItemData> list) {
@@ -349,4 +351,5 @@ public class MyActivity extends AppCompatActivity {
         savedContainerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         savedContainerView.setAdapter(savedAdapter);
     }
+    */
 }

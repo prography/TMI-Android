@@ -11,18 +11,19 @@ import android.widget.TextView;
 
 import com.example.administrator.tmi.R;
 import com.example.administrator.tmi.activity.MainDetailActivity;
+import com.example.administrator.tmi.data.Board;
 import com.example.administrator.tmi.data.ItemData;
 
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    private List<ItemData> itemList;
+    private List<Board> boardList;
     private Context context;
 
-    public MyAdapter(Context context, List<ItemData> itemList){
+    public MyAdapter(Context context, List<Board> boardList){
         this.context = context;
-        this.itemList = itemList;
+        this.boardList = boardList;
     }
 
     @Override
@@ -32,35 +33,31 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     public void onBindViewHolder(ViewHolder viewHolder, int position){
-        final ItemData itemData = itemList.get(position);
-        viewHolder.dateText.setText(itemData.getDateText());
-        viewHolder.nameText.setText(itemData.getNameText());
-        viewHolder.replyCount.setText(String.valueOf(itemData.getReplyCount()));
-        viewHolder.subjectText.setText(itemData.getSubjectText());
-        viewHolder.mainText.setText(itemData.getMainText());
-        viewHolder.tagsText.setText(itemData.getTagsText());
+        final Board board = boardList.get(position);
+        viewHolder.nameText.setText(board.getMember().getEmail());
+        viewHolder.subjectText.setText(board.getTitle());
+        viewHolder.mainText.setText(board.getContent());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, MainDetailActivity.class);
-                intent.putExtra("subject", itemData.getSubjectText());
-                intent.putExtra("mainText", itemData.getMainText());
-                intent.putExtra("nickname", itemData.getNameText());
-                intent.putExtra("date", itemData.getDateText());
-                intent.putExtra("tags",itemData.getTagsText());
+                intent.putExtra("subject", board.getTitle());
+                intent.putExtra("mainText", board.getContent());
+                intent.putExtra("email", board.getMember().getEmail());
                 context.startActivity(intent);
             }
         } );
     }
 
     @Override
-    public int getItemCount(){return itemList.size();}
+    public int getItemCount(){return boardList.size();}
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         TextView dateText;
         TextView nameText;
         ImageView likeImageView;
+        ImageView replyImageView;
         TextView replyCount;
         TextView subjectText;
         TextView mainText;
@@ -71,6 +68,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             dateText = (TextView)itemView.findViewById(R.id.item_date);
             nameText = (TextView)itemView.findViewById(R.id.item_nickname);
             likeImageView = (ImageView)itemView.findViewById(R.id.item_book);
+            replyImageView = (ImageView)itemView.findViewById(R.id.item_talk_bub);
             replyCount = (TextView)itemView.findViewById(R.id.item_reply_count);
             subjectText = (TextView)itemView.findViewById(R.id.item_subject);
             mainText = (TextView)itemView.findViewById(R.id.item_text);

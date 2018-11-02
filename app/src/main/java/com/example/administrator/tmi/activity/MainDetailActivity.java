@@ -34,8 +34,6 @@ public class MainDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         detailSubject.setText(intent.getStringExtra("subject"));
         detailMain.setText(intent.getStringExtra("mainText"));
-        detailName.setText(intent.getStringExtra("nickname"));
-        detailDate.setText(intent.getStringExtra("date"));
-        detailTags.setText(intent.getStringExtra("tags"));
+        detailName.setText(intent.getStringExtra("email"));
     }
 }
