@@ -113,37 +113,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/reply_image"
-                    android:layout_height="30dp"
-                    android:layout_width="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignParentLeft="true"
-                    android:src="@drawable/reply"/>
                 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:padding="10dp"
-                    android:text="공지"/>
+                    android:text="TMI 공지"/>
                 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:padding="10dp"
-                    android:text="09.15"/>
+                    android:text="11.03"/>
 
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="더미데이터 공지 더미데이터 공지 더미데이터 공지 더미데이터 공지 더미데이터 공지"
+                android:text="TMI 어플리케이션이 출시되었습니다!"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:padding="10dp"/>

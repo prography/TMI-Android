@@ -47,7 +47,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_toRightOf="@+id/nickname"
                 android:padding="10dp"
-                android:text="10.05"
+                android:text="11.03"
                 android:textSize="10dp" />
 
         </RelativeLayout>
@@ -55,7 +55,7 @@
 
     <TextView
         android:id="@+id/item_tags"
-        android:text="#강남 #주말 #주차 꿀팁"
+        android:text="#태그1 #태그2 #태그3"
         android:textSize="15dp"
         android:paddingLeft="10dp"
         android:singleLine="true"
@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_toRightOf="@+id/item_talk_bub"
-            android:text="33"
+            android:text="2"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="3dp"
