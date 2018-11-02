@@ -98,6 +98,12 @@
             android:layout_alignParentRight="true"
             android:src="@drawable/item_book"/>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/darker_gray_back"/>
+
 
     </RelativeLayout>
 
